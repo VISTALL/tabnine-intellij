@@ -1,9 +1,9 @@
 package com.tabnine.general;
 
-import com.intellij.ide.plugins.IdeaPluginDescriptor;
-import com.intellij.ide.plugins.PluginManager;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.util.TextRange;
+import consulo.container.plugin.PluginDescriptor;
+import consulo.container.plugin.PluginManager;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -11,23 +11,18 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Optional;
-
-import static com.tabnine.general.StaticConfig.TABNINE_PLUGIN_ID;
 
 public final class Utils {
     private static final String UNKNOWN = "Unknown";
 
     public static String getTabNinePluginVersion() {
-        return getTabNinePluginDescriptor().map(IdeaPluginDescriptor::getVersion).orElse(UNKNOWN);
+        return getTabNinePluginDescriptor().map(PluginDescriptor::getVersion).orElse(UNKNOWN);
     }
 
     @NotNull
-    public static Optional<IdeaPluginDescriptor> getTabNinePluginDescriptor() {
-        return Arrays.stream(PluginManager.getPlugins())
-                .filter(plugin -> TABNINE_PLUGIN_ID.equals(plugin.getPluginId()))
-                .findAny();
+    public static Optional<PluginDescriptor> getTabNinePluginDescriptor() {
+        return Optional.of(PluginManager.getPlugin(Utils.class));
     }
 
     public static boolean endsWithADot(Document doc, int positionBeforeSuggestionPrefix) {

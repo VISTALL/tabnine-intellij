@@ -1,11 +1,11 @@
 package com.tabnine.statusBar;
 
-import com.intellij.openapi.editor.colors.EditorColorsManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.CustomStatusBarWidget;
 import com.intellij.openapi.wm.impl.status.EditorBasedWidget;
 import com.intellij.openapi.wm.impl.status.TextPanel;
 import com.intellij.util.Consumer;
+import com.intellij.util.ui.UIUtil;
 import com.tabnine.binary.BinaryRequestFacade;
 import com.tabnine.binary.requests.config.ConfigRequest;
 import com.tabnine.binary.requests.statusBar.ConfigOpenedFromStatusBarRequest;
@@ -38,7 +38,7 @@ public class TabnineStatusBarWidget extends EditorBasedWidget implements CustomS
     public JComponent getComponent() {
         TextPanel.WithIconAndArrows component = new TextPanel.WithIconAndArrows();
 
-        component.setIcon(EditorColorsManager.getInstance().isDarkEditor() ? ICON_AND_NAME_DARK : ICON_AND_NAME);
+        component.setIcon(UIUtil.isUnderDarcula() ? ICON_AND_NAME_DARK : ICON_AND_NAME);
         component.setToolTipText(getTooltipText());
         component.addMouseListener(new MouseAdapter() {
             @Override
@@ -53,12 +53,6 @@ public class TabnineStatusBarWidget extends EditorBasedWidget implements CustomS
     // Compatability implementation. DO NOT ADD @Override.
     @Nullable
     public WidgetPresentation getPresentation() {
-        return this;
-    }
-
-    // Compatability implementation. DO NOT ADD @Override.
-    @Nullable
-    public WidgetPresentation getPresentation(@NotNull PlatformType type) {
         return this;
     }
 

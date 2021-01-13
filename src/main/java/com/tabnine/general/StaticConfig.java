@@ -1,8 +1,9 @@
 package com.tabnine.general;
 
-import com.intellij.openapi.extensions.PluginId;
-import com.intellij.openapi.util.IconLoader;
 import com.intellij.openapi.util.SystemInfo;
+import com.tabnine.icon.TabNineIconGroup;
+import consulo.container.plugin.PluginId;
+import consulo.ui.image.Image;
 import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
@@ -17,8 +18,8 @@ import static java.awt.Color.decode;
 
 public class StaticConfig {
     // Must be identical to what is written under <id>com.tabnine.TabNine</id> in plugin.xml !!!
-    public static final String TABNINE_PLUGIN_ID_RAW = "com.tabnine.TabNine";
-    public static final PluginId TABNINE_PLUGIN_ID = PluginId.getId(TABNINE_PLUGIN_ID_RAW);
+    //public static final String TABNINE_PLUGIN_ID_RAW = "com.tabnine.TabNine";
+    //public static final PluginId TABNINE_PLUGIN_ID = PluginId.getId(TABNINE_PLUGIN_ID_RAW);
     public static final int MAX_COMPLETIONS = 5;
     public static final String BINARY_PROTOCOL_VERSION = "2.0.2";
     public static final int COMPLETION_TIME_THRESHOLD = 1000;
@@ -43,10 +44,10 @@ public class StaticConfig {
     public static final String REMOTE_VERSION_URL_PROPERTY = "TABNINE_REMOTE_VERSION_URL";
     public static final String REMOTE_BETA_VERSION_URL_PROPERTY = "TABNINE_REMOTE_BETA_VERSION_URL";
     public static final String LOG_FILE_PATH_PROPERTY = "TABNINE_LOG_FILE_PATH";
-    public static final Icon ICON = IconLoader.findIcon("/icons/tabnine-icon-13px.png");
-    public static final Icon ICON_AND_NAME = IconLoader.findIcon("/icons/tabnine-13px-dark.png");
-    public static final Icon ICON_AND_NAME_DARK = IconLoader.findIcon("/icons/tabnine-13px-light.png");
-    public static final Icon NOTIFICATION_ICON = IconLoader.findIcon("/icons/notification-icon.png");
+    public static final Image ICON = TabNineIconGroup.tabnine_icon_13px();
+    public static final Image ICON_AND_NAME = TabNineIconGroup.tabnine_13px();
+    public static final Image ICON_AND_NAME_DARK = TabNineIconGroup.tabnine_13px();
+    public static final Image NOTIFICATION_ICON = TabNineIconGroup.notification_icon();
     public static final Color PROMOTION_TEXT_COLOR = decode("#e12fee");
     public static final Color PROMOTION_LIGHT_TEXT_COLOR = decode("#FF99FF");
     private static final int MAX_SLEEP_TIME_BETWEEN_FAILURES = 1_000 * 60 * 60; // 1 hour

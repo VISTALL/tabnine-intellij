@@ -1,6 +1,5 @@
 package com.tabnine.general;
 
-import com.intellij.ide.plugins.PluginStateListener;
 import com.tabnine.binary.BinaryProcessGatewayProvider;
 import com.tabnine.binary.BinaryProcessRequesterProvider;
 import com.tabnine.binary.BinaryRequestFacade;
@@ -38,11 +37,6 @@ public class DependencyContainer {
     @NotNull
     public static CompletionFacade instanceOfCompletionFacade() {
         return new CompletionFacade(instanceOfBinaryRequestFacade());
-    }
-
-    @NotNull
-    public static PluginStateListener instanceOfTabNinePluginStateListener() {
-        return new TabNinePluginStateListener(instanceOfUninstallReporter(), instanceOfBinaryRequestFacade());
     }
 
     public static BinaryNotificationsLifecycle instanceOfBinaryNotifications() {

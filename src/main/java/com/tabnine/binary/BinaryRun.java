@@ -2,7 +2,6 @@ package com.tabnine.binary;
 
 import com.intellij.openapi.application.ApplicationInfo;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.util.PlatformUtils;
 import com.tabnine.binary.exceptions.NoValidBinaryToRunException;
 import com.tabnine.binary.exceptions.TabNineDeadException;
 import com.tabnine.binary.fetch.BinaryVersionFetcher;
@@ -58,7 +57,7 @@ public class BinaryRun {
             List<String> metadata = new ArrayList<>(asList(
                     "--client-metadata",
                     "pluginVersion=" + cmdSanitize(getTabNinePluginVersion()),
-                    "clientIsUltimate=" + PlatformUtils.isIdeaUltimate(),
+                    "clientIsUltimate=" + "false",
                     "clientChannel=" + Config.CHANNEL
             ));
             final ApplicationInfo applicationInfo = ApplicationInfo.getInstance();
@@ -70,7 +69,7 @@ public class BinaryRun {
                 constantParameters.add("true");
 
                 metadata.add("clientVersion=" + cmdSanitize(applicationInfo.getFullVersion()));
-                metadata.add("clientApiVersion=" + cmdSanitize(applicationInfo.getApiVersion()));
+                metadata.add("clientApiVersion=" + cmdSanitize("163"));
             }
 
             if (additionalMetadata != null) {

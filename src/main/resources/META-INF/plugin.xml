@@ -1,8 +1,9 @@
 <?xml version="1.0" ?>
-<idea-plugin url="http://tabnine.com">
+<consulo-plugin url="http://tabnine.com">
     <name>Tabnine AI Autocomplete: JavaScript C Python Ruby Rust Go PHP...</name>
     <id>com.tabnine.TabNine</id>
     <vendor email="support@tabnine.com" url="https://tabnine.com">Tabnine</vendor>
+    <version>SNAPSHOT</version>
     <description><![CDATA[
 <p>
     <a href="https://bit.ly/2UwHG4a"><img src="https://raster.shields.io/github/stars/codota/Tabnine?style=social" alt="Github Repo"></a>&nbsp;
@@ -136,13 +137,10 @@
 
     <change-notes>Tabnine is always evolving. Most updates are in the binary sidecar.</change-notes>
 
-    <idea-version since-build="182.*"/>
-    <depends>com.intellij.modules.lang</depends>
-
     <extensions defaultExtensionNs="com.intellij">
-        <ApplicationLoadListener implementation="com.tabnine.Initializer"/>
-        <statusBarWidgetProvider implementation="com.tabnine.statusBar.StatusBarProvider"/>
-        <statusBarWidgetProvider implementation="com.tabnine.statusBar.StatusBarPromotionProvider"/>
+        <applicationService serviceImplementation="com.tabnine.Initializer" lazy="false"/>
+        <statusBarWidgetFactory implementation="com.tabnine.statusBar.StatusBarProvider" id="tabnineWidget" order="before positionWidget"/>
+        <statusBarWidgetFactory implementation="com.tabnine.statusBar.StatusBarPromotionProvider" order="after tabnineWidget"/>
         <completion.contributor language="any" implementationClass="com.tabnine.TabNineCompletionContributor" order="first"/>
     </extensions>
-</idea-plugin>
+</consulo-plugin>

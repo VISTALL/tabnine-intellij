@@ -9,3 +9,6 @@ reports/
 *.iml
 .DS_Store
 Library/
+
+.consulo
+target/
