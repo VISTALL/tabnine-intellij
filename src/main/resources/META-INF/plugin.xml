@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <consulo-plugin url="http://tabnine.com">
-    <name>Tabnine AI Autocomplete: JavaScript C Python Ruby Rust Go PHP...</name>
+    <name>Tabnine AI Autocomplete</name>
     <id>com.tabnine.TabNine</id>
     <vendor email="support@tabnine.com" url="https://tabnine.com">Tabnine</vendor>
     <version>SNAPSHOT</version>
@@ -134,6 +134,9 @@
     More resources: <a href="https://www.tabnine.com/blog">Tabnine blog</a>, <a href="https://www.tabnine.com/faq">Questions? Check out our FAQ</a>, <a href="https://www.tabnine.com/pricing">Learn more about our premium plans</a>.
 </p>
 ]]></description>
+    <tags>
+        <tag>editor.extension</tag>
+    </tags>
 
     <change-notes>Tabnine is always evolving. Most updates are in the binary sidecar.</change-notes>
 
