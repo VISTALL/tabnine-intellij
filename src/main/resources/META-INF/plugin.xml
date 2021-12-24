@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<consulo-plugin url="http://tabnine.com">
+<consulo-plugin url="https://github.com/consulo/consulo-tabnine">
     <name>Tabnine AI Autocomplete</name>
     <id>com.tabnine.TabNine</id>
     <vendor email="support@tabnine.com" url="https://tabnine.com">Tabnine</vendor>
